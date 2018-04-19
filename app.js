@@ -15,8 +15,9 @@ var commentRoutes    = require("./routes/comments"),
     foodRoutes = require("./routes/food"),
     indexRoutes       = require("./routes/index");
     
-//mongoose.connect("mongodb://localhost/foodSite");
-mongoose.connect("mongodb://pik:02597603@ds251849.mlab.com:51849/foodsite");
+var url = process.env.DATABASEURL || "mongodb://localhost/foodSite";
+mongoose.connect(url);
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
