@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Edit <span class="text-warning"><%= food.name %></span></h1>
+        <div style="width: 30%; margin: 25px auto">
+            <form action="/foods/<%= food._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="food[name]" value="<%= food.name %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="food[price]" value="<%= food.price %>" min="0.01" step="0.01">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="food[image]" value="<%= food.image %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="food[descriptio]n" value="<%= food.description %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/foods">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
